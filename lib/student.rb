@@ -60,7 +60,7 @@ class Student < InteractiveRecord
     if !name.nil?
       sql = "SELECT * FROM #{self.table_name} WHERE name: name"
 
-      
+      DB[:conn].execute(sql)
     else
 
       sql = "SELECT * FROM #{self.table_name} WHERE grade: grade"
