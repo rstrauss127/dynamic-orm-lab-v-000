@@ -56,7 +56,7 @@ class Student < InteractiveRecord
     DB[:conn].execute(sql)
   end
 
-  def self.find_by(name: nil, grade:)
+  def self.find_by(name: nil, grade: nil)
     if !name.nil?
       sql = "SELECT * FROM #{self.table_name} WHERE name: name"
     else
