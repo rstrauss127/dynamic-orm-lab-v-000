@@ -56,17 +56,11 @@ class Student < InteractiveRecord
     DB[:conn].execute(sql)
   end
 
-  def self.find_by(name: nil, grade: nil)
-    if !name.nil?
-      sql = "SELECT * FROM #{self.table_name} WHERE name: name"
-
-      DB[:conn].execute(sql)
-    else
-
-      sql = "SELECT * FROM #{self.table_name} WHERE grade: grade"
+  def self.find_by(attrhash)
+    col  = attrhash.keys[0].to_s
+    value = attrhash[attrhash.keys[0]]
+    sql = "SELECT * FROM #{self.table_name} WHERE #{col} = '#{value}'"
     DB[:conn].execute(sql)
-    end
-
   end
 
 end
