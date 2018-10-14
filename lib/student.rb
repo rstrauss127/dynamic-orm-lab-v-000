@@ -66,5 +66,4 @@ class Student < InteractiveRecord
     DB[:conn].execute(sql)
   end
 
-  end
 end
