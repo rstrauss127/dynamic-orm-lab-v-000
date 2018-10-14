@@ -58,6 +58,6 @@ class Student < InteractiveRecord
 
   def self.find_by(name , grade)
 
-    DB[:conn].execute("SELECT * FROM #{table_name} WHERE name = ? AND grade = ?", name, grade)
+    DB[:conn].execute("SELECT * FROM #{table_name} WHERE name = ? OR grade = ?", name, grade)
   end
 end
